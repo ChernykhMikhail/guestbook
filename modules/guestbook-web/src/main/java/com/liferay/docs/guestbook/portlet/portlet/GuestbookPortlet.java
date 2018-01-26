@@ -63,12 +63,14 @@ public class GuestbookPortlet extends MVCPortlet {
                 
                 _entryLocalService.updateEntry(serviceContext.getUserId(), guestbookId, entryId, userName, email, message, serviceContext);
                 
-                SessionMessages.add(request, "entryAdded");
-                
                 response.setRenderParameter("guestbookId", Long.toString(guestbookId));
+                
+                SessionMessages.add(request, "entryAdded");
                 
             } catch (Exception e) {
                 System.out.println(e);
+                
+                Logger.getLogger(GuestbookPortlet.class.getName()).log(Level.SEVERE, null, e);
                 
                 SessionErrors.add(request, e.getClass().getName());
                 
@@ -81,11 +83,13 @@ public class GuestbookPortlet extends MVCPortlet {
             try {
                 _entryLocalService.addEntry(serviceContext.getUserId(), guestbookId, userName, email, message, serviceContext);
                 
-                SessionMessages.add(request, "entryAdded");
-                
                 response.setRenderParameter("guestbookId", Long.toString(guestbookId));
                 
+                SessionMessages.add(request, "entryAdded");
+                
             } catch (Exception e) {
+                Logger.getLogger(GuestbookPortlet.class.getName()).log(Level.SEVERE, null, e);
+                
                 SessionErrors.add(request, e.getClass().getName());
                 
                 PortalUtil.copyRequestParameters(request, response);
@@ -99,18 +103,18 @@ public class GuestbookPortlet extends MVCPortlet {
         long entryId = ParamUtil.getLong(request, "entryId");
         long guestbookId = ParamUtil.getLong(request, "guestbookId");
         
-        ServiceContext serviceContext = ServiceContextFactory.getInstance(
-            Entry.class.getName(), request);
+        ServiceContext serviceContext = ServiceContextFactory.getInstance(Entry.class.getName(), request);
         
         try {
-            
-            response.setRenderParameter(
-                "guestbookId", Long.toString(guestbookId));
+            response.setRenderParameter("guestbookId", Long.toString(guestbookId));
             
             _entryLocalService.deleteEntry(entryId, serviceContext);
+            
+            SessionMessages.add(request, "entryDeleted");
         } catch (Exception e) {
-            Logger.getLogger(GuestbookPortlet.class.getName()).log(
-                Level.SEVERE, null, e);
+            Logger.getLogger(GuestbookPortlet.class.getName()).log(Level.SEVERE, null, e);
+            
+            SessionErrors.add(request, e.getClass().getName());
         }
     }
     
