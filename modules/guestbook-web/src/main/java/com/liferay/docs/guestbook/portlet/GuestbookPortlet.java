@@ -1,4 +1,4 @@
-package com.liferay.docs.guestbook.portlet.portlet;
+package com.liferay.docs.guestbook.portlet;
 
 import com.liferay.docs.guestbook.model.Entry;
 import com.liferay.docs.guestbook.model.Guestbook;
@@ -21,8 +21,6 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

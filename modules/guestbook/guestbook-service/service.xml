@@ -37,9 +37,19 @@
         <finder name="GroupId" return-type="Collection">
             <finder-column name="groupId"/>
         </finder>
+        <finder name="Status" return-type="Collection">
+            <finder-column name="status" />
+        </finder>
+
+        <finder name="G_S" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="status" />
+        </finder>
+        <reference package-path="com.liferay.portlet.asset" entity="AssetEntry"/>
+        <reference package-path="com.liferay.portlet.asset" entity="AssetLink"/>
     </entity>
     <entity local-service="true" name="Entry" uuid="true">
-        <column name="entryId" primary="true" type="long" />
+        <column name="entryId" primary="true" type="long"/>
 
         <column name="groupId" type="long"/>
 
@@ -65,6 +75,15 @@
             <finder-column name="groupId"/>
             <finder-column name="guestbookId"/>
         </finder>
+        <finder name="Status" return-type="Collection">
+            <finder-column name="status" />
+        </finder>
+        <finder name="G_S" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="status" />
+        </finder>
+        <reference package-path="com.liferay.portlet.asset" entity="AssetEntry"/>
+        <reference package-path="com.liferay.portlet.asset" entity="AssetLink"/>
     </entity>
     <exceptions>
         <exception>EntryEmail</exception>

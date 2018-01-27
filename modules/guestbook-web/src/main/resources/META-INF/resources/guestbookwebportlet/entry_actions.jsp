@@ -9,27 +9,20 @@
 %>
 
 <liferay-ui:icon-menu>
-
     <portlet:renderURL var="viewEntryURL">
         <portlet:param name="entryId" value="<%= String.valueOf(entry.getEntryId()) %>"/>
         <portlet:param name="mvcPath" value="/guestbookwebportlet/view_entry.jsp"/>
     </portlet:renderURL>
 
-    <liferay-ui:icon
-            message="View"
-            url="<%= viewEntryURL.toString() %>"
-    />
-
+    <liferay-ui:icon message="View" url="<%= viewEntryURL.toString() %>"/>
     <c:if
             test="<%= EntryPermission.contains(permissionChecker, entry.getEntryId(), ActionKeys.UPDATE) %>">
         <portlet:renderURL var="editURL">
-            <portlet:param name="entryId"
-                           value="<%= String.valueOf(entry.getEntryId()) %>"/>
+            <portlet:param name="entryId" value="<%= String.valueOf(entry.getEntryId()) %>"/>
             <portlet:param name="mvcPath" value="/guestbookwebportlet/edit_entry.jsp"/>
         </portlet:renderURL>
 
-        <liferay-ui:icon image="edit" message="Edit"
-                         url="<%=editURL.toString() %>"/>
+        <liferay-ui:icon image="edit" message="Edit" url="<%=editURL.toString() %>"/>
     </c:if>
 
     <c:if
