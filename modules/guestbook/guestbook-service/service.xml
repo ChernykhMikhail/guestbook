@@ -5,7 +5,7 @@
 <service-builder auto-namespace-tables="true" package-path="com.liferay.docs.guestbook">
     <author>liferay</author>
     <namespace>GB</namespace>
-    <entity local-service="true" name="Guestbook" uuid="true">
+    <entity name="Guestbook" local-service="true" remote-service="true" uuid="true">
 
         <!-- PK fields -->
 
@@ -48,7 +48,7 @@
         <reference package-path="com.liferay.portlet.asset" entity="AssetEntry"/>
         <reference package-path="com.liferay.portlet.asset" entity="AssetLink"/>
     </entity>
-    <entity local-service="true" name="Entry" uuid="true">
+    <entity name="Entry" local-service="true" remote-service="true" uuid="true">
         <column name="entryId" primary="true" type="long"/>
 
         <column name="groupId" type="long"/>
