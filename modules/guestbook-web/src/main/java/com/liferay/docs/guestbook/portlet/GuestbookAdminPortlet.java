@@ -2,7 +2,7 @@ package com.liferay.docs.guestbook.portlet;
 
 import com.liferay.docs.guestbook.model.Guestbook;
 import com.liferay.docs.guestbook.portlet.constants.GuestbookPortletKeys;
-import com.liferay.docs.guestbook.service.GuestbookLocalService;
+import com.liferay.docs.guestbook.service.GuestbookService;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.service.ServiceContext;
@@ -91,10 +91,10 @@ public class GuestbookAdminPortlet extends MVCPortlet {
         }
     }
     
-    private GuestbookLocalService _guestbookLocalService;
+    private GuestbookService _guestbookLocalService;
     
     @Reference(unbind = "-")
-    protected void setGuestbookService(GuestbookLocalService guestbookLocalService) {
+    protected void setGuestbookService(GuestbookService guestbookLocalService) {
         _guestbookLocalService = guestbookLocalService;
     }
 }
