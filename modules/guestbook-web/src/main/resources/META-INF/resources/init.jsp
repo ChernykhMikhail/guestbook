@@ -61,6 +61,8 @@
 
 <%@ page import="com.liferay.portal.kernel.util.ListUtil" %>
 
+<%@ page import="com.liferay.portal.kernel.workflow.WorkflowConstants"%>
+
 <liferay-theme:defineObjects/>
 
 <portlet:defineObjects/>

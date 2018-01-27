@@ -47,6 +47,7 @@
         </finder>
         <reference package-path="com.liferay.portlet.asset" entity="AssetEntry"/>
         <reference package-path="com.liferay.portlet.asset" entity="AssetLink"/>
+        <reference entity="WorkflowInstanceLink" package-path="com.liferay.portal" />
     </entity>
     <entity name="Entry" local-service="true" remote-service="true" uuid="true">
         <column name="entryId" primary="true" type="long"/>
@@ -82,8 +83,14 @@
             <finder-column name="groupId" />
             <finder-column name="status" />
         </finder>
+        <finder name="G_G_S" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="guestbookId" />
+            <finder-column name="status" />
+        </finder>
         <reference package-path="com.liferay.portlet.asset" entity="AssetEntry"/>
         <reference package-path="com.liferay.portlet.asset" entity="AssetLink"/>
+        <reference entity="WorkflowInstanceLink" package-path="com.liferay.portal" />
     </entity>
     <exceptions>
         <exception>EntryEmail</exception>
