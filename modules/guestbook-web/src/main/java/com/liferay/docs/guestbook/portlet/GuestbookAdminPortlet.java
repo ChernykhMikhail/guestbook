@@ -44,7 +44,7 @@ public class GuestbookAdminPortlet extends MVCPortlet {
         String name = ParamUtil.getString(request, "name");
         
         try {
-            _guestbookLocalService.addGuestbook(serviceContext.getUserId(), name, serviceContext);
+            _guestbookService.addGuestbook(serviceContext.getUserId(), name, serviceContext);
             
             SessionMessages.add(request, "guestbookAdded");
         } catch (PortalException pe) {
@@ -63,7 +63,7 @@ public class GuestbookAdminPortlet extends MVCPortlet {
         long guestbookId = ParamUtil.getLong(request, "guestbookId");
         
         try {
-            _guestbookLocalService.updateGuestbook(serviceContext.getUserId(), guestbookId, name, serviceContext);
+            _guestbookService.updateGuestbook(serviceContext.getUserId(), guestbookId, name, serviceContext);
             
             SessionMessages.add(request, "guestbookUpdated");
         } catch (PortalException pe) {
@@ -81,7 +81,7 @@ public class GuestbookAdminPortlet extends MVCPortlet {
         long guestbookId = ParamUtil.getLong(request, "guestbookId");
         
         try {
-            _guestbookLocalService.deleteGuestbook(guestbookId, serviceContext);
+            _guestbookService.deleteGuestbook(guestbookId, serviceContext);
             
             SessionMessages.add(request, "guestbookDeleted");
         } catch (PortalException pe) {
@@ -91,10 +91,10 @@ public class GuestbookAdminPortlet extends MVCPortlet {
         }
     }
     
-    private GuestbookService _guestbookLocalService;
+    private GuestbookService _guestbookService;
     
     @Reference(unbind = "-")
-    protected void setGuestbookService(GuestbookService guestbookLocalService) {
-        _guestbookLocalService = guestbookLocalService;
+    protected void setGuestbookService(GuestbookService guestbookService) {
+        _guestbookService = guestbookService;
     }
 }
