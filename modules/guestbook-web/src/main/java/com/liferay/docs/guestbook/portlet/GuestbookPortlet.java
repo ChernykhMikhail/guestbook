@@ -157,5 +157,4 @@ public class GuestbookPortlet extends MVCPortlet {
     
     private GuestbookService _guestbookService;
     private EntryService _entryService;
-    
 }
